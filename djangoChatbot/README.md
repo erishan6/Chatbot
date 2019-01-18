@@ -1,6 +1,8 @@
-## Chatbot based on Django
+# Chatbot based on Django
+## Team Members: Ishan Adhaulia, Anurag Nigam & Davy Baardink
 
-The dataset has been obtained from open source project namely https://github.com/gunthercox/chatterbot-corpus 
+## Dataset
+The dataset has been obtained from open source project namely **[Link](https://github.com/gunthercox/chatterbot-corpus)**
 
  ## Requirements
 
