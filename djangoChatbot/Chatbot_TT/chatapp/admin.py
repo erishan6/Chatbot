@@ -2,4 +2,4 @@ from django.contrib import admin
 from .models import *
 
 # Register your models here.
-admin.site.register(ChatInfo)
+admin.site.register(ChatInfo) # Register the chatapp model with admin.

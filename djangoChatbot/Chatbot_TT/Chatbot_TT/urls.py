@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 urlpatterns = [
-    path('chatapp/', include('chatapp.urls')),
+    # register the urls for different applications
+    path('chatapp/', include('chatapp.urls')), # includes all the urls listed in chatapp application defined in django
     path('admin/', admin.site.urls),
 ]

@@ -4,30 +4,28 @@ from .models import *
 from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
+
+# View for chatapp index page
 def index(request):
     return render(request, 'chatapp/index.html')
 
-
-def temp(request):
-    return HttpResponse("You are at the temperature now.")
-
+# View for bot page
 def bot(request):
     # Get the request content, give back the information
-    # Population, temperature today or tomorrow
     if request.method == "POST":
         response = 'I do not understand'
         data = request.POST
-        userinput = data['input'].strip()
+        userinput = data['input'].strip().lower()
         greeting = ['hi', 'hello']
         try:
-            response = str(ChatInfo.objects.get(question=userinput)) # dbquery(userinput)
+            response = str(ChatInfo.objects.get(question=userinput))
         except ObjectDoesNotExist as oe:
             print(oe)
             # response = oe.__str__()
-            response = "Default message"
+            response = "Answer not found in db. Try a internet search"
         except Exception as e:
             print(e)
-            response = "Default message"
+            response = "Answer not found in db. Try a internet search"
         print(response)
         if userinput in greeting:
             response = "Hi there!"

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'chatapp.apps.ChatappConfig',
+    'chatapp.apps.ChatappConfig', # chatapp registration
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -74,6 +74,7 @@ WSGI_APPLICATION = 'Chatbot_TT.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# Our db choice : sqlite
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
