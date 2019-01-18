@@ -20,8 +20,9 @@ def bot(request):
         userinput = data['input'].strip().lower()
         print(userinput, " 222222222222222222")
         greeting = ['hi', 'hello']
-        # response = str(ChatInfo.objects.filter(question=userinput))
+        response = str(ChatInfo.objects.filter(question=userinput))
         print(response)
+
         if userinput in greeting:
             response = "Hi there!"
         elif userinput == "how are you?":
