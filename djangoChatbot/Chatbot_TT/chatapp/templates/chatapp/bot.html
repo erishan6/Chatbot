@@ -1,16 +1,45 @@
 {% load static %}
-<h1> Welcome to the Chatbot for Anything!</h1>
-<p>Ask me something like: "What is the name of the nearest major galaxy to the Milky Way?"</p>
 
-<hr>
-<div id="chatcontent"> </div>
-
-<br>
-
-<input id="message" placeholder="Type here.." autocomplete="off" autofocus/>
-<button>Send</button>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<div class="container">
+  <div class="panel panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h1 style="margin:47px 0 10px 286px"> Welcome to the Chatbot for Anything!</h1>
+              <p style="margin:26px 0 0 291px; font-size:15px">Ask me something like: "What is the name of the nearest major galaxy to the Milky Way?"</p>
+        </div>
+
+       <div class="panel-body" style="margin:0 0 0 342px;">
+
+             <fieldset  style="margin: 0 233px 0 0;">
+                  <legend><i class='far fa-user' style='font-size:36px;margin: 0 0 0 6px;'></i></legend>
+                  <div id="chatcontent"></div>
+                 
+
+             </fieldset>
+       </div>
+        <div class="panel-body" style="margin:49px 0 1px 342px;">
+             <fieldset style="margin: 0 233px 0 0;">
+                 <legend><i class='fas fa-comment-alt' style='font-size:36px;margin: 0 0 0 6px;'></i></legend>
+
+                     <input id="message" style="width: 300px;height: 36px; margin: 0 0 0 50px;" placeholder="Type here.." autocomplete="off" autofocus/>
+                    <button style="width:55px; height:36px">Send</button>
+
+
+             </fieldset>
+
+
+
+       </div>
+      </div>
+  </div>
+</div>
+
 
 
 <script> 
