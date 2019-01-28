@@ -20,7 +20,7 @@ $('#message').keypress(function() {
 		method: 'POST',
 		success: function(data) {
 			//What to do when getting the data back from views
-			var newres = $('<div class="container" style="margin:0 0 0 185px;width: 59%; background-color: antiquewhite;color:fuchsia;font-weight:bolder;padding:8px;">');
+			var newres = $('<div class="container" style="margin:0 0 0 185px;width: 59%; background-color: antiquewhite;color:indigo;font-weight:bolder;padding:8px;">');
 			newres.text('Bot: ' + data['reply']);
 			newres.appendTo(text);
 		}
