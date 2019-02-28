@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from .models import *
 from django.core.exceptions import ObjectDoesNotExist
 from random import *
+import re
 # Create your views here.
 
 # View for chatapp index page
@@ -16,8 +17,10 @@ def bot(request):
         response = 'I do not understand'
         data = request.POST
         userinput = data['input'].strip().lower()
+        s = re.sub(r"[^a-zA-Z0-9]+", ' ', userinput).strip()
+        print(s, userinput)
         try:
-            response = str(ChatInfo.objects.get(question=userinput))
+            response = str(ChatInfo.objects.get(question=s))
             if "|" in response:
                 ans = response.strip().split("|")
                 print(ans)
