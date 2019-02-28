@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <div class="container">
   <div class="panel panel-group">
 
@@ -14,22 +15,22 @@
 
        <div class="panel-body" style="margin:0 0 0 292px;">
 
-             <fieldset  style="margin: 0 173px 0 0;">
+             <div  style="margin: 0 173px 0 0;">
                   <legend><i class='far fa-user' style='font-size:36px;margin: 0 0 0 6px;'></i></legend>
-                  <div id="chatcontent" style="max-height: 300;overflow-y: scroll;"></div>
+                  <div id="chatcontent" style="max-height: 300;overflow-y: auto;"></div>
 
 
-             </fieldset>
+             </div>
        <!--</div>
         <div class="panel-body" style="margin:200px 0 0 292px; "> -->
-             <fieldset style="margin: 137px 173px 0 0;">
+             <div style="margin: 250px 173px 0 0;">
                  <legend><i class='fas fa-comment-alt' style='font-size:36px;margin: 0 0 0 6px;'></i></legend>
 
                      <input id="message" style="width: 300px;height: 36px; margin: 0 0 0 148px;" placeholder="Type here.." autocomplete="off" autofocus/>
-                    <button style="width:55px; height:36px">Send</button>
+                    <button style="width:55px; height:36px" onclick="clickme()">Send</button>
 
 
-             </fieldset>
+             </div>
 
 
 
@@ -40,9 +41,36 @@
 
 
 
-<script> 
+<script>
 	$.ajaxSetup({ data: {csrfmiddlewaretoken: '{{csrf_token}}'}});
 
 </script>
 
+<script>
+    function clickme() {
+     var userinput = $('#message').val();
+		var res = $('<div class="container" style="margin:15px 0 19px 27px;background-color: azure;display: block;clear:both;width: 59%;color:steelblue;font-weight:bolder;padding:8px">');
+		res.text('You: ' +userinput);
+		res.appendTo(text);
+		$('#message').val('');
+
+		//Get the response from views and db
+		$.ajax( {
+
+		url: '/chatapp/bot/',
+		type : 'POST',
+		data: {
+			'input': userinput,
+		},
+		method: 'POST',
+		success: function(data) {
+			//What to do when getting the data back from views
+			var newres = $('<div class="container" style="margin:0 0 0 185px;width: 59%; background-color: antiquewhite;color:indigo;font-weight:bolder;padding:8px;">');
+			newres.text('Bot: ' + data['reply']);
+			newres.appendTo(text);
+		}
+		})
+
+    }
+</script>
 <script src="{% static 'js/bot.js' %}"></script>
