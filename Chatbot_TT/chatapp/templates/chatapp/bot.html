@@ -6,7 +6,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+<script>
+    setInterval(updateScroll,1);
+    function updateScroll(){
+    var element = document.getElementById("chatcontent");
+    element.scrollTop = element.scrollHeight;
+}
+</script>
 <div class="container">
  <!-- <div class="panel panel-group"> -->
 
@@ -19,7 +25,7 @@
 
              <div  style="margin: -460px 173px 0 0; position: fixed;">
                   <legend><i class='far fa-user' style='font-size:36px;margin: 0 0 0 6px; padding-right: 312px'></i></legend>
-                  <div id="chatcontent" style="max-height: 300;overflow-y: auto; position: fixed; width: 40%; height: 50%;margin: -14px 0px 0px -30px;"></div>
+                  <div id="chatcontent" style="max-height: 300;overflow: auto; position: fixed; width: 40%; height: 50%;margin: -14px 0px 0px -30px;"></div>
 
 
              </div>
@@ -49,6 +55,7 @@
 </script>
 
 <script>
+
     function clickme() {
      var userinput = $('#message').val();
 		var res = $('<div class="container" style="margin:15px 0 19px 27px;background-color: azure;display: block;clear:both;width: 59%;color:steelblue;font-weight:bolder;padding:8px">');

@@ -1,6 +1,7 @@
 // JS for handling UI for chatbot
 
 var text= $('#chatcontent');
+
 $('#message').keypress(function() {
 	if (event.which == 13) {
 
